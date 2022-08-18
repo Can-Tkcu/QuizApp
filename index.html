@@ -18,7 +18,7 @@
     <title>QuizApp</title>
 </head>
 
-<body>
+<body onload="init()">
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">QuizApp</span>
@@ -29,58 +29,39 @@
         <div class="card" style="width: 50rem;">
             <img src="img/quiz_header.png" class="card-img-top" alt="Quiz Header">
             <div class="card-body">
-              <h5 class="card-title">Frage</h5>
-              <p class="card-text">Hier steht eine Frage</p>
+                <h5 class="card-title m-2 mb-4" id="questiontext"></h5>
+                <div class="card m-2">
+                    <div class="card-body" id="answer_1">
+                        
+                    </div>
+                </div>
+                <div class="card m-2">
+                    <div class="card-body" id="answer_2">
+                        
+                    </div>
+                </div>
+                <div class="card m-2">
+                    <div class="card-body" id="answer_3">
+                        
+                    </div>
+                </div>
+                <div class="card m-2">
+                    <div class="card-body" id="answer_4">
+                        
+                    </div>
+                </div>
+                <div class="card-footer m-2">
+                    <span>
+                        <b>1</b> von <b id="quiztotal"></b>
+                        <p>Fragen</p>
+                    </span>
+                    <div>
+                        <button class="btn btn-primary">Nächste Frage</button>
+                    </div>
+                </div>
             </div>
-            <div class="card m-2">
-                <div class="card-body">
-                  Antwort
-                </div>
-              </div>
-              <div class="card m-2">
-                <div class="card-body">
-                  Antwort
-                </div>
-              </div>
-              <div class="card m-2">
-                <div class="card-body">
-                  Antwort
-                </div>
-              </div>
-              <div class="card m-2">
-                <div class="card-body">
-                  Antwort
-                </div>
-              </div>
-              <div class="card-footer m-2">
-                <span>
-                    <b>1</b> von <b>5</b> <p>Fragen</p>
-                </span>
-                <div>
-                    <button class="btn btn-primary">Nächste Frage</button>
-                </div>
-              </div>
-          </div>
-          
+        </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
-</html>   
+</html>
