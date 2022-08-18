@@ -1,0 +1,25 @@
+body {
+    min-height: 100vh;
+    background-color: #007AFF !important;
+}
+
+/* CARD START*/
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer span{
+    display: flex;
+    gap: 10px;
+}
+
+/* CARD END */
