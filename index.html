@@ -26,37 +26,41 @@
     </nav>
 
     <div class="card-container">
-        <div class="card" style="width: 50rem;">
+        <div class="card-body d-none" id="quiz-end">
+            Quiz beendet
+        </div>
+
+        <div class="card" style="width: 50rem;" id="quiz-start">
             <img src="img/quiz_header.png" class="card-img-top" alt="Quiz Header">
             <div class="card-body">
                 <h5 class="card-title m-2 mb-4" id="questiontext"></h5>
-                <div class="card m-2">
+                <div class="card quiz-answer-text m-2" onclick="selected('answer_1')">
                     <div class="card-body" id="answer_1">
                         
                     </div>
                 </div>
-                <div class="card m-2">
+                <div class="card quiz-answer-text m-2" onclick="selected('answer_2')">
                     <div class="card-body" id="answer_2">
                         
                     </div>
                 </div>
-                <div class="card m-2">
+                <div class="card quiz-answer-text m-2" onclick="selected('answer_3')">
                     <div class="card-body" id="answer_3">
                         
                     </div>
                 </div>
-                <div class="card m-2">
+                <div class="card quiz-answer-text m-2" onclick="selected('answer_4')">
                     <div class="card-body" id="answer_4">
                         
                     </div>
                 </div>
-                <div class="card-footer m-2">
+                <div class="card-footer m-2 mt-4">
                     <span>
-                        <b>1</b> von <b id="quiztotal"></b>
+                        <b id="current-question"></b> von <b id="quiztotal"></b>
                         <p>Fragen</p>
                     </span>
                     <div>
-                        <button class="btn btn-primary">Nächste Frage</button>
+                        <button class="btn btn-primary" id="next-question" disabled onclick="nextQuestion()">Nächste Frage</button>
                     </div>
                 </div>
             </div>
