@@ -45,27 +45,32 @@ let questions = [
   },
 ];
 
+let rightAnsweredQuestions = 0;
+
 let currentQuestion = 0;
 
 function init() {
   document.getElementById("quiztotal").innerHTML = questions.length;
   showQuestion();
-}
+} 
 
 function showQuestion() {
-  if (currentQuestion >= questions.length) {
-    showEndScreen();
-  }
   let question = questions[currentQuestion];
+
   if (currentQuestion < questions.length) {
     document.getElementById("current-question").innerHTML = currentQuestion + 1;
+    document.getElementById("quiztotal-end").innerHTML = questions.length;
+    document.getElementById("end-score-correct-answers").innerHTML = rightAnsweredQuestions;
   }
-
-  document.getElementById("questiontext").innerHTML = question["question"];
-  document.getElementById("answer_1").innerHTML = question["answer_1"];
-  document.getElementById("answer_2").innerHTML = question["answer_2"];
-  document.getElementById("answer_3").innerHTML = question["answer_3"];
-  document.getElementById("answer_4").innerHTML = question["answer_4"];
+  if(question == undefined) {
+    showEndScreen();
+  } else {
+    document.getElementById("questiontext").innerHTML = question["question"];
+    document.getElementById("answer_1").innerHTML = question["answer_1"];
+    document.getElementById("answer_2").innerHTML = question["answer_2"];
+    document.getElementById("answer_3").innerHTML = question["answer_3"];
+    document.getElementById("answer_4").innerHTML = question["answer_4"];
+  }
 }
 
 function selected(answer) {
@@ -73,8 +78,9 @@ function selected(answer) {
   let selectedQuestionNumber = answer.slice(-1);
   let correctAnswerId = `answer_${question["right_answer"]}`;
 
-  if (selectedQuestionNumber == question["right_answer"]) {
+  if (selectedQuestionNumber == question['right_answer']) {
     document.getElementById(answer).parentNode.classList.add("bg-success");
+    rightAnsweredQuestions++;
   } else {
     document.getElementById(answer).parentNode.classList.add("bg-danger");
     document .getElementById(correctAnswerId).parentNode.classList.add("bg-success");
@@ -102,4 +108,5 @@ function resetCard() {
 
 function showEndScreen() {
   document.getElementById("quiz-start").classList.add("d-none");
+  document.getElementById("quiz-end").classList.remove("d-none");
 }

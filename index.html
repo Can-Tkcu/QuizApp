@@ -26,8 +26,18 @@
     </nav>
 
     <div class="card-container">
-        <div class="card-body d-none" id="quiz-end">
-            Quiz beendet
+        <div class="card d-none" style="width: 50rem;" id="quiz-end">
+            <img src="img/brain result.png" class="card-img-top-end padding">
+            <img src="img/tropy.png" class="card-img-top-end-trophy padding">
+            <div class="card-body text-center">
+                <span class="fs-2 warning"><b>JavaScript Quiz beendet!</b></span>
+            </div>
+            <div class="card-body text-center">
+                <span class="fs-3"><p>Du hast <b id="end-score-correct-answers"></b> / <b id="quiztotal-end"></b> Fragen richtig beantwortet!</p></span>
+            </div>
+            <div class="d-flex justify-content-center padding">
+                <button class="btn btn-secondary text-center " onclick="location.reload()">Replay</button>
+            </div>
         </div>
 
         <div class="card" style="width: 50rem;" id="quiz-start">

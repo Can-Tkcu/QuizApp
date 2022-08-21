@@ -3,9 +3,24 @@ body {
     background-color: #007AFF !important;
 }
 
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+.padding {
+    padding: 16px;
+}
+
+.warning {
+    color: var(--bs-warning);
+}
+
+/* ****** */
+
 /* CARD START*/
 
-.card{
+.card {
     --bs-card-cap-bg: none !important;
 }
 
@@ -16,26 +31,37 @@ body {
     height: calc(100vh - 50px);
 }
 
-.card-footer{
+.card-footer {
     display: flex;
     justify-content: space-between;
 }
 
-.card-footer span{
+.card-footer span {
     display: flex;
     gap: 10px;
 }
 
-.quiz-answer-text{
+.quiz-answer-text {
     cursor: pointer;
 }
 
-.quiz-answer-text:hover{
+.quiz-answer-text:hover {
     background-color: rgba(197, 196, 255, 0.116);
 }
 
-.bg-success, .bg-danger{
+.bg-success, .bg-danger {
     color: white;
+}
+
+.card-img-top-end {
+    height: 250px;
+    object-fit: contain;
+}
+
+.card-img-top-end-trophy {
+    position: absolute;
+    top: 45px;
+    left: 606px;
 }
 
 /* CARD END */
