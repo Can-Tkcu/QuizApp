@@ -60,8 +60,12 @@ body {
 
 .card-img-top-end-trophy {
     position: absolute;
-    top: 45px;
-    left: 606px;
+    top: 54px;
+    right: -17px;
+}
+
+.progress {
+    border-radius: 0px !important;
 }
 
 /* CARD END */
