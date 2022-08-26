@@ -1,6 +1,8 @@
 body {
-    min-height: 100vh;
-    background-color: #007AFF !important;
+    background-color:  #0082c5 !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Utility */
@@ -28,7 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 50px);
+    height: 100%;
 }
 
 .card-footer {
@@ -69,3 +71,122 @@ body {
 }
 
 /* CARD END */
+
+
+.start-wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.startscreen{
+    width: 100%;
+    max-width: 71rem;
+    background-color: var(--bs-gray-200);
+    height: 100%;
+    max-height: 700px;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.quiz-options{
+    height: 100%;
+    width: 30%;
+    background-color: #312b88;
+    border-radius: 10px 0px 0px 10px;
+    color: white;
+   
+}
+
+.quiz-options ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+.startbg {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+   
+}
+
+.option-wrapper{
+    height: 100%;
+    max-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px !important;
+}
+
+
+.options{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Rubik';
+    font-size: 21px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.options span:hover{
+    border-left: solid 6px white;
+    background-color: rgba(255, 255, 255, 0.356);
+    color: white;
+}
+
+.header{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    background-image: url(img/brainbg.jpg);
+    border-radius: 10px 10px 10px 10px;
+}
+
+
+.sub-text{
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.start-button{
+    background-color: var(--bs-orange);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 267px;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px;
+}
+
+.start-button:hover{
+    transition: 225ms ease-in-out;
+    background-color: orange;
+    
+}
+
+.selected{
+    background-color: gold;
+    color: black;
+}
