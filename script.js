@@ -49,7 +49,7 @@ let questionsA = [
 /**GAMES QUIZ */
 let questionsB = [
   {
-    question: "Wer hat JavaScript erfunden?",
+    question: "TEST",
     answer_1: "Rammstein",
     answer_2: "Brandan Eich",
     answer_3: "Elon Musk",
@@ -57,7 +57,7 @@ let questionsB = [
     right_answer: 2,
   },
   {
-    question: "Wie viele Datentypen/Datenstrukturen besitzt JavaScript?",
+    question: "TEST",
     answer_1: "42",
     answer_2: "0",
     answer_3: "7",
@@ -65,7 +65,7 @@ let questionsB = [
     right_answer: 3,
   },
   {
-    question: "Was ist der Unterschied zwischen Java und JavaScript?",
+    question: "TEST",
     answer_1:
       "Java ist eine OOP-Programmiersprache, während JavaScript eine OOP-Skriptingsprache ist",
     answer_2:
@@ -76,7 +76,7 @@ let questionsB = [
     right_answer: 1,
   },
   {
-    question: "Wie erstellt man ein Array in JavaScript?",
+    question: "TEST" ,
     answer_1: "let gamma = zeta.ArrayInit",
     answer_2: "let z = >.<",
     answer_3: "let x = <.<",
@@ -84,7 +84,7 @@ let questionsB = [
     right_answer: 4,
   },
   {
-    question: "Was macht eine for-Schleife?",
+    question: "TEST",
     answer_1: "Eine Methode um sich die Schuhe zu zubinden",
     answer_2:
       "For-Schleifen sind ein einfaches Werkzeug, um einzelne Schritte wiederholt auszuführen",
@@ -105,18 +105,18 @@ let AUDIO_FAIL = new Audio("audio/fail.mp3");
 ///////////////////////////////////////////////////////////////////////////////////JAVASCRIPT QUIZ////////////////////////////////////////////////////////////////////////////////////
 
 function initA() {
-  showJavaScriptQuiz();
-  showQuestion();
+  showQuiz();
+  showQuestionA();
 }
 
-function showQuestion() {
+function showQuestionA() {
   let question = questionsA[currentQuestion];
-  if (gameIsOver()) {
+  if (gameIsOverA()) {
       showEndScreen();
   } else {
       displayCurrentQuestion(question);
-      updateQuestion();
-      updateProgressBar();
+      updateQuestionA();
+      updateProgressBarA();
   }
 }
 
@@ -137,9 +137,9 @@ function selected(answer) {
   document.getElementById("next-question").disabled = false;
 }
 
-function nextQuestion() {
+function nextQuestionA() {
   currentQuestion++;
-  showQuestion();
+  showQuestionA();
   resetCard();
   enableSelection();
   document.getElementById("next-question").disabled = true;
@@ -156,7 +156,7 @@ function resetCard() {
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
 }
 
-function restartGame() {
+function restartGameA() {
   document.getElementById("quiz-start").classList.remove("d-none");
   document.getElementById("quiz-end").classList.add("d-none");
   rightAnsweredQuestions = 0;
@@ -171,14 +171,14 @@ function showEndScreen(){
     document.getElementById("end-score-correct-answers").innerHTML =  rightAnsweredQuestions;
 }
 
-function updateProgressBar(){
+function updateProgressBarA(){
   let percent = (currentQuestion) / questionsA.length;
   percent = percent * 100;
   document.getElementById("progress-bar").innerHTML = `${percent}%`;
   document.getElementById("progress-bar").style = `width: ${percent}%`;
 }
  
-function updateQuestion(){
+function updateQuestionA(){
   document.getElementById("quiztotal").innerHTML = questionsA.length;
   document.getElementById("current-question").innerHTML = currentQuestion + 1;
 }
@@ -191,7 +191,7 @@ function displayCurrentQuestion(question){
   document.getElementById("answer_4").innerHTML = question["answer_4"];
 }
 
-function gameIsOver(){
+function gameIsOverA(){
   return currentQuestion >= questionsA.length;
 }
 
@@ -215,23 +215,23 @@ function enableSelection(){
 ///////////////////////////////////////////////////////////////////////////////////GAMES QUIZ/////////////////////////////////////////////////////////////////////////////////////////////
 
 function initB() {
-  showJavaScriptQuiz();
-  showQuestion();
+  showQuiz();
+  showQuestionB();
 }
 
-function showQuestion() {
-  let question = questionsA[currentQuestion];
-  if (gameIsOver()) {
+function showQuestionB() {
+  let question = questionsB[currentQuestion];
+  if (gameIsOverB()) {
       showEndScreen();
   } else {
       displayCurrentQuestion(question);
-      updateQuestion();
-      updateProgressBar();
+      updateQuestionB();
+      updateProgressBarB();
   }
 }
 
 function selected(answer) {
-  let question = questionsA[currentQuestion];
+  let question = questionsB[currentQuestion];
   let selectedQuestionNumber = answer.slice(-1);
   let correctAnswerId = `answer_${question["right_answer"]}`;
   if (selectedQuestionNumber == question["right_answer"]) {
@@ -247,9 +247,9 @@ function selected(answer) {
   document.getElementById("next-question").disabled = false;
 }
 
-function nextQuestion() {
+function nextQuestionB() {
   currentQuestion++;
-  showQuestion();
+  showQuestionB();
   resetCard();
   enableSelection();
   document.getElementById("next-question").disabled = true;
@@ -266,30 +266,30 @@ function resetCard() {
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
 }
 
-function restartGame() {
+function restartGameB() {
   document.getElementById("quiz-start").classList.remove("d-none");
   document.getElementById("quiz-end").classList.add("d-none");
   rightAnsweredQuestions = 0;
   currentQuestion = 0;
-  initA();
+  initB();
 }
 
 function showEndScreen(){
     document.getElementById("quiz-start").classList.add("d-none");
     document.getElementById("quiz-end").classList.remove("d-none");
-    document.getElementById("quiztotal-end").innerHTML = questionsA.length;
+    document.getElementById("quiztotal-end").innerHTML = questionsB.length;
     document.getElementById("end-score-correct-answers").innerHTML =  rightAnsweredQuestions;
 }
 
-function updateProgressBar(){
-  let percent = (currentQuestion) / questionsA.length;
+function updateProgressBarB(){
+  let percent = (currentQuestion) / questionsB.length;
   percent = percent * 100;
   document.getElementById("progress-bar").innerHTML = `${percent}%`;
   document.getElementById("progress-bar").style = `width: ${percent}%`;
 }
  
-function updateQuestion(){
-  document.getElementById("quiztotal").innerHTML = questionsA.length;
+function updateQuestionB(){
+  document.getElementById("quiztotal").innerHTML = questionsB.length;
   document.getElementById("current-question").innerHTML = currentQuestion + 1;
 }
 
@@ -301,8 +301,8 @@ function displayCurrentQuestion(question){
   document.getElementById("answer_4").innerHTML = question["answer_4"];
 }
 
-function gameIsOver(){
-  return currentQuestion >= questionsA.length;
+function gameIsOverB(){
+  return currentQuestion >= questionsB.length;
 }
 
 function disableSelection(){
@@ -321,7 +321,7 @@ function enableSelection(){
 
 ///////////////////////////////////////////////////////////////////////////////////GAMES QUIZ END//////////////////////////////////////////////////////////////////////////////////////
 
-function showJavaScriptQuiz(){
+function showQuiz(){
   document.getElementById('javascript-quiz').classList.remove('d-none');
 }
 
@@ -339,12 +339,16 @@ function SelectQuizB(){
 /**selects JS Quiz */
 function selectA(){
   document.getElementById("quiz-button").setAttribute( "onClick", "SelectQuizA()" );
+  document.getElementById("next-question").setAttribute( "onClick", "nextQuestionA()" );
+  document.getElementById("restart-button").setAttribute( "onClick", "restartGameA()" );
   document.getElementById("JS").classList.add('selected');
   document.getElementById("GM").classList.remove('selected');
 }
 /**selects Games Quiz */
 function selectB(){
   document.getElementById("quiz-button").setAttribute( "onClick", "SelectQuizB()" );
+  document.getElementById("next-question").setAttribute( "onClick", "nextQuestionB()" );
+  document.getElementById("restart-button").setAttribute( "onClick", "restartGameB()" );
   document.getElementById("GM").classList.add('selected');
   document.getElementById("JS").classList.remove('selected');
 }
