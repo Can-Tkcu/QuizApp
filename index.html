@@ -20,23 +20,18 @@
 </head>
 
 <body>
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">QuizApp</span>
-        </div>
-    </nav>
-
+<div class="wrapper">
     <div id="start-quiz" class="start-wrapper">
         <div class="startscreen">
 
             <div class="header">
                 <div class="start-text">
-                    <span>Welcome to my QuizApp! </span>
-                    <span class="sub-text">Select Quiz & Press Start Game when ready! </span>
+                    <span>Willkomen in meiner QuizApp! </span>
+                    <span class="sub-text">Wähle ein Quiz & beginne mit dem Quiz</span>
                 </div>
                 <div>
                     <button id="quiz-button" class="start-button" onclick="SelectQuizA()">
-                        Start Game
+                        Spiel starten
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi bi-chevron-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -58,10 +53,8 @@
             </div>
         </div>
     </div>
-
-
     <div id="javascript-quiz" class="card-container d-none">
-        <div class="card d-none" style="width: 71rem;" id="quiz-end">
+        <div class="card fit-screen d-none" style="width: 71rem;" id="quiz-end">
             <img src="img/brain result.png" class="card-img-top-end padding">
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 100%;">100%</div>
@@ -77,36 +70,40 @@
                 </span>
             </div>
             <div class="d-flex justify-content-center padding">
-                <button id="restart-button" class="btn btn-primary text-center" onclick="restartGameA()">Replay</button>
-                <button id="main-menu" class="btn btn-primary text-center" onclick="returnToStart()">Hauptmenü</button>
+                <button id="restart-button" class="btn btn-primary text-center m-3"
+                    onclick="restartGameA()">Wiederholen</button>
+                <button id="main-menu" class="btn btn-primary text-center m-3"
+                    onclick="returnToStart()">Hauptmenü</button>
             </div>
         </div>
+        <div class="card fit-screen" style="width: 50rem;" id="quiz-start">
 
-        <div class="card" style="width: 50rem;" id="quiz-start">
             <img src="img/quiz_header.png" class="card-img-top" alt="Quiz Header">
             <div class="progress">
                 <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;">0%</div>
             </div>
             <div class="card-body">
                 <h5 class="card-title m-2 mb-4" id="questiontext"></h5>
-                <div class="card quiz-answer-text m-2" id="answer_a" onclick="selected('answer_1')">
-                    <div class="card-body" id="answer_1">
+                <div class="answer-wrapper">
+                    <div class="card quiz-answer-text m-2" id="answer_a" onclick="selected('answer_1')">
+                        <div class="card-body" id="answer_1">
 
+                        </div>
                     </div>
-                </div>
-                <div class="card quiz-answer-text m-2" id="answer_b" onclick="selected('answer_2')">
-                    <div class="card-body" id="answer_2">
+                    <div class="card quiz-answer-text m-2" id="answer_b" onclick="selected('answer_2')">
+                        <div class="card-body" id="answer_2">
 
+                        </div>
                     </div>
-                </div>
-                <div class="card quiz-answer-text m-2" id="answer_c" onclick="selected('answer_3')">
-                    <div class="card-body" id="answer_3">
+                    <div class="card quiz-answer-text m-2" id="answer_c" onclick="selected('answer_3')">
+                        <div class="card-body" id="answer_3">
 
+                        </div>
                     </div>
-                </div>
-                <div class="card quiz-answer-text m-2" id="answer_d" onclick="selected('answer_4')">
-                    <div class="card-body" id="answer_4">
+                    <div class="card quiz-answer-text m-2" id="answer_d" onclick="selected('answer_4')">
+                        <div class="card-body" id="answer_4">
 
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer m-2 mt-4">
@@ -122,6 +119,8 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
 </body>
 
 </html>

@@ -1,11 +1,16 @@
 body {
     background-color:  #0082c5 !important;
+    height: 100%;
+}
+
+.wrapper{
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 /* Utility */
+
 .text-center {
     text-align: center;
 }
@@ -197,4 +202,86 @@ body {
 .selected{
     background-color: gold;
     color: black;
+}
+
+
+.fit-screen {
+        height: none;
+        width: none;
+}
+
+@media (max-width: 500px) {
+
+    .startscreen{
+         max-width: none; 
+         max-height: none; 
+         border-radius: 0px; 
+         flex-direction: column-reverse;
+    }
+    
+    .quiz-options{
+        border-radius: 0px;
+        width: 100%;
+        height: 320px;
+    }
+
+    .options{
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .option-wrapper{
+        max-height: 110px;
+    }
+
+    .start-text{
+        display: none;
+    }
+
+    .card-img-top-end-trophy{
+        height: 116px;
+        top: 180px;
+        right: -1px
+    }
+
+    .fit-screen {
+        height: 100% !important;
+        width: 100% !important;
+
+    }
+
+    .card{
+        --bs-card-spacer-y: none !important;
+        --bs-card-spacer-x: none !important;
+        border-radius: none !important;
+    }
+    
+    .card-body{
+         padding: 10.5px !important;
+         --bs-card-spacer-y: none !important;
+         --bs-card-spacer-x: none !important;
+         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .header{
+        background-position: center;
+    }
+
+    .card-img-top{
+        display: none;
+    }
+
+    .answer-wrapper{
+        gap: 29px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .padding{
+        padding: 0px;
+    }
+
+
 }
