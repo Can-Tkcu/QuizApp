@@ -30,7 +30,7 @@
                     <span class="sub-text">Wähle ein Quiz & beginne mit dem Quiz</span>
                 </div>
                 <div>
-                    <button id="quiz-button" class="start-button" onclick="SelectQuizA()">
+                    <button id="quiz-button" class="start-button" disabled onclick="SelectQuizA()">
                         Spiel starten
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -71,7 +71,7 @@
             </div>
             <div class="d-flex justify-content-center padding">
                 <button id="restart-button" class="btn btn-primary text-center m-3"
-                    onclick="restartGameA()">Wiederholen</button>
+                    onclick="restartGame()">Wiederholen</button>
                 <button id="main-menu" class="btn btn-primary text-center m-3"
                     onclick="returnToStart()">Hauptmenü</button>
             </div>
@@ -112,7 +112,7 @@
                         <p>Fragen</p>
                     </span>
                     <div>
-                        <button class="btn btn-primary" id="next-question" disabled onclick="nextQuestionA()">Nächste
+                        <button class="btn btn-primary" id="next-question" disabled onclick="nextQuestion()">Nächste
                             Frage</button>
                     </div>
                 </div>
