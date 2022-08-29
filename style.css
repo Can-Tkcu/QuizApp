@@ -162,6 +162,14 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
+    margin-bottom: 215px;
+}
+
+.start-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .start-button{
@@ -170,7 +178,7 @@ body {
     outline: none;
     border-radius: 10px;
     height: 50px;
-    width: 267px;
+    width: 265px;
     font-size: 25px;
     color: white;
     display: flex;

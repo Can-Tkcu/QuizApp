@@ -28,15 +28,19 @@
 
     <div id="start-quiz" class="start-wrapper">
         <div class="startscreen">
-            
+
             <div class="header">
-                <span>Welcome to my QuizApp! </span>
-                <span class="sub-text">Select Quiz & Press Start Game when ready! </span>
+                <div class="start-text">
+                    <span>Welcome to my QuizApp! </span>
+                    <span class="sub-text">Select Quiz & Press Start Game when ready! </span>
+                </div>
                 <div>
-                    <button id="quiz-button" class="start-button  mt-5" onclick="SelectQuizA()">
-                        Start Game 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    <button id="quiz-button" class="start-button" onclick="SelectQuizA()">
+                        Start Game
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                         </svg>
                     </button>
                 </div>
@@ -64,7 +68,7 @@
             </div>
             <img src="img/tropy.png" class="card-img-top-end-trophy padding">
             <div class="card-body text-center">
-                <span class="fs-2 warning"><b>JavaScript Quiz beendet!</b></span>
+                <span class="fs-2 warning"><b id="quiz-type">JavaScript Quiz beendet!</b></span>
             </div>
             <div class="card-body text-center">
                 <span class="fs-3">
@@ -73,7 +77,8 @@
                 </span>
             </div>
             <div class="d-flex justify-content-center padding">
-                <button id="restart-button" class="btn btn-primary text-center " onclick="restartGameA()">Replay</button>
+                <button id="restart-button" class="btn btn-primary text-center" onclick="restartGameA()">Replay</button>
+                <button id="main-menu" class="btn btn-primary text-center" onclick="returnToStart()">Hauptmenü</button>
             </div>
         </div>
 

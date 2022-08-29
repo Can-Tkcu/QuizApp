@@ -49,51 +49,52 @@ let questionsA = [
 /**GAMES QUIZ */
 let questionsB = [
   {
-    question: "TEST",
-    answer_1: "Rammstein",
-    answer_2: "Brandan Eich",
-    answer_3: "Elon Musk",
-    answer_4: "Olaf Scholz",
-    right_answer: 2,
-  },
-  {
-    question: "TEST",
-    answer_1: "42",
-    answer_2: "0",
-    answer_3: "7",
-    answer_4: "1337",
-    right_answer: 3,
-  },
-  {
-    question: "TEST",
-    answer_1:
-      "Java ist eine OOP-Programmiersprache, während JavaScript eine OOP-Skriptingsprache ist",
-    answer_2:
-      "Java wurde nur für Minecraft entwickelt, während JavaScript universell ist",
-    answer_3: "JavaScript und Java sind beide gleich",
-    answer_4:
-      "Java ist der große Bruder von JavaScript, daher sind beide fast gleich",
+    question: "Welches Spiel war das erste Computerspiel?",
+    answer_1: "Pong",
+    answer_2: "Spacewar!",
+    answer_3: "Minecraft",
+    answer_4: "Half-Life",
     right_answer: 1,
   },
   {
-    question: "TEST" ,
-    answer_1: "let gamma = zeta.ArrayInit",
-    answer_2: "let z = >.<",
-    answer_3: "let x = <.<",
-    answer_4: "let x = [];",
+    question: "Wähle die am meisten verkaufte Konsole",
+    answer_1: "Game Cube",
+    answer_2: "NES",
+    answer_3: "PS2",
+    answer_4: "XBOX 1",
+    right_answer: 3,
+  },
+  {
+    question: "Welches Spiel ist das am meisten gespielte Spiel aller Zeiten?",
+    answer_1: "Fortnite",
+    answer_2: "Roblox",
+    answer_3: "Minecraft",
+    answer_4: "Sea of Thieves",
+    right_answer: 1,
+  },
+  {
+    question: "Nach welchem Essen wurde Pacman designed?" ,
+    answer_1: "Wunderkugel",
+    answer_2: "Kekse",
+    answer_3: "Käse",
+    answer_4: "Pizza",
     right_answer: 4,
   },
   {
-    question: "TEST",
-    answer_1: "Eine Methode um sich die Schuhe zu zubinden",
-    answer_2:
-      "For-Schleifen sind ein einfaches Werkzeug, um einzelne Schritte wiederholt auszuführen",
-    answer_3: "Eine for-Schleife bindet externe Webseiten ein",
-    answer_4: "Mit der for-Schleife kann man Krawattenbindeprogramme coden",
+    question: "Wie viele Half-Life Teile gibt es?",
+    answer_1: "3",
+    answer_2: "2",
+    answer_3: "3",
+    answer_4: "3",
     right_answer: 2,
   },
 ];
 
+
+/**TODO
+ * responsive 
+ * finish end screen
+ */
 let rightAnsweredQuestions = 0;
 
 let currentQuestion = 0;
@@ -101,6 +102,10 @@ let currentQuestion = 0;
 let AUDIO_SUCCESS = new Audio("audio/success.mp3");
 
 let AUDIO_FAIL = new Audio("audio/fail.mp3");
+
+let AUDIO_BEGIN = new Audio("audio/begin.mp3")
+
+let AUDIO_END = new Audio("audio/end.mp3")
 
 ///////////////////////////////////////////////////////////////////////////////////JAVASCRIPT QUIZ////////////////////////////////////////////////////////////////////////////////////
 
@@ -165,6 +170,7 @@ function restartGameA() {
 }
 
 function showEndScreen(){
+    AUDIO_END.play();
     document.getElementById("quiz-start").classList.add("d-none");
     document.getElementById("quiz-end").classList.remove("d-none");
     document.getElementById("quiztotal-end").innerHTML = questionsA.length;
@@ -275,10 +281,20 @@ function restartGameB() {
 }
 
 function showEndScreen(){
+    AUDIO_END.play();
     document.getElementById("quiz-start").classList.add("d-none");
     document.getElementById("quiz-end").classList.remove("d-none");
     document.getElementById("quiztotal-end").innerHTML = questionsB.length;
     document.getElementById("end-score-correct-answers").innerHTML =  rightAnsweredQuestions;
+}
+
+function returnToStart(){
+  document.getElementById("quiz-end").classList.add("d-none");
+  document.getElementById("quiz-start").classList.add("d-none");
+  document.getElementById("javascript-quiz").classList.add("d-none");
+  document.getElementById("start-quiz").classList.remove("d-none");
+  rightAnsweredQuestions = 0;
+  currentQuestion = 0;
 }
 
 function updateProgressBarB(){
@@ -323,19 +339,22 @@ function enableSelection(){
 
 function showQuiz(){
   document.getElementById('javascript-quiz').classList.remove('d-none');
+  document.getElementById("quiz-start").classList.remove("d-none");
 }
 
 /**initiates JS Quiz */
 function SelectQuizA(){
   document.getElementById('start-quiz').classList.add('d-none');
   initA();
-  
+  AUDIO_BEGIN.play();
 }
 /**initiates Games Quiz */
 function SelectQuizB(){
   document.getElementById('start-quiz').classList.add('d-none');
   initB();
+  AUDIO_BEGIN.play();
 }
+
 /**selects JS Quiz */
 function selectA(){
   document.getElementById("quiz-button").setAttribute( "onClick", "SelectQuizA()" );
@@ -351,4 +370,7 @@ function selectB(){
   document.getElementById("restart-button").setAttribute( "onClick", "restartGameB()" );
   document.getElementById("GM").classList.add('selected');
   document.getElementById("JS").classList.remove('selected');
+  document.getElementById("quiz-type").innerHTML = "Games quiz wurde beendet";
 }
+
+
