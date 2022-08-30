@@ -86,7 +86,6 @@ let questionsB = [
   },
 ];
 
-
 let rightAnsweredQuestions = 0;
 
 let currentQuestion = 0;
@@ -100,71 +99,35 @@ let AUDIO_BEGIN = new Audio("audio/begin.mp3")
 let AUDIO_END = new Audio("audio/end.mp3")
 
 let JS = questionsA;
+
 let GM = questionsB;
 
-///////////////////////////////////////////////////////////////////////////////////JAVASCRIPT QUIZ////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function initA() {
-  showQuiz();
-  showQuestion(JS);
-}
-
-/**initiates JS Quiz */
-function SelectQuizA(){
-  document.getElementById('start-quiz').classList.add('d-none');
-  initA();
-  AUDIO_BEGIN.play();
-}
-
-/**selects JS Quiz */
-function selectA(){
-  document.getElementById("quiz-button").setAttribute( "onClick", "SelectQuizA()" );
-  document.getElementById("next-question").setAttribute( "onClick", "nextQuestion(JS)" );
-  document.getElementById("restart-button").setAttribute( "onClick", "restartGame(initA)" );
-  document.getElementById("answer_a").setAttribute( "onClick", "selected('answer_1', JS)" );
-  document.getElementById("answer_b").setAttribute( "onClick", "selected('answer_2', JS)" );
-  document.getElementById("answer_c").setAttribute( "onClick", "selected('answer_3', JS)" );
-  document.getElementById("answer_d").setAttribute( "onClick", "selected('answer_4', JS)" );
-  document.getElementById("JS").classList.add('selected');
-  document.getElementById("GM").classList.remove('selected');
-  document.getElementById("quiz-type").innerHTML = "JavaScript Quiz beendet!";
+/**Quizselection*/
+function select(quiztype, text){
+  document.getElementById("quiz-button").setAttribute( "onClick", `SelectQuiz(${quiztype})`);
+  document.getElementById("next-question").setAttribute( "onClick", `nextQuestion(${quiztype})`);
+  document.getElementById("restart-button").setAttribute( "onClick", `restartGame(${quiztype})`);
+  document.getElementById("answer_a").setAttribute( "onClick", `selected('answer_1', ${quiztype})`);
+  document.getElementById("answer_b").setAttribute( "onClick", `selected('answer_2', ${quiztype})`);
+  document.getElementById("answer_c").setAttribute( "onClick", `selected('answer_3', ${quiztype})`);
+  document.getElementById("answer_d").setAttribute( "onClick", `selected('answer_4', ${quiztype})`);
+  document.getElementById("quiz-type").innerHTML = `${text} Quiz beendet!`;
   document.getElementById("quiz-button").disabled = false;
 }
 
-///////////////////////////////////////////////////////////////////////////////////JAVASCRIPT QUIZ END////////////////////////////////////////////////////////////////////////////////////
-
-
-///////////////////////////////////////////////////////////////////////////////////GAMES QUIZ/////////////////////////////////////////////////////////////////////////////////////////////
-
-function initB() {
-  showQuiz();
-  showQuestion(GM);
-}
-
-/**initiates Games Quiz */
-function SelectQuizB(){
+/**selects Quiztype */
+function SelectQuiz(quiztype){
   document.getElementById('start-quiz').classList.add('d-none');
-  initB();
+  init(quiztype);
   AUDIO_BEGIN.play();
-  
 }
 
-/**selects Games Quiz */
-function selectB(){
-  document.getElementById("quiz-button").setAttribute( "onClick", "SelectQuizB()" );
-  document.getElementById("next-question").setAttribute( "onClick", "nextQuestion(GM)" );
-  document.getElementById("restart-button").setAttribute( "onClick", "restartGame(initB)" );
-  document.getElementById("answer_a").setAttribute( "onClick", "selected('answer_1', GM)" );
-  document.getElementById("answer_b").setAttribute( "onClick", "selected('answer_2', GM)" );
-  document.getElementById("answer_c").setAttribute( "onClick", "selected('answer_3', GM)" );
-  document.getElementById("answer_d").setAttribute( "onClick", "selected('answer_4', GM)" );
-  document.getElementById("GM").classList.add('selected');
-  document.getElementById("JS").classList.remove('selected');
-  document.getElementById("quiz-type").innerHTML = "Games Quiz beendet!";
-  document.getElementById("quiz-button").disabled = false;
+function init(quiztype) {
+  showQuiz();
+  showQuestion(quiztype);
 }
-
-///////////////////////////////////////////////////////////////////////////////////GAMES QUIZ END/////////////////////////////////////////////////////////////////////////////////////////
 
 function selected(answer, question) {
   let rightAnswer = question[currentQuestion]["right_answer"];
@@ -180,15 +143,6 @@ function selected(answer, question) {
     document.getElementById(correctAnswerId).parentNode.classList.add("bg-success");
   }
   disableSelection();
-  document.getElementById("next-question").disabled = false;
-}
-
-function nextQuestion(quiztype) {
-  currentQuestion++;
-  showQuestion(quiztype);
-  resetCard();
-  enableSelection();
-  document.getElementById("next-question").disabled = true;
 }
 
 function showQuestion(quiztype) {
@@ -213,6 +167,14 @@ function displayCurrentQuestion(question){
   document.getElementById("answer_4").innerHTML = question["answer_4"];
 }
 
+function nextQuestion(quiztype) {
+  currentQuestion++;
+  showQuestion(quiztype);
+  resetCard();
+  enableSelection();
+  document.getElementById("next-question").disabled = true;
+}
+
 function updateQuestion(){
   document.getElementById("quiztotal").innerHTML = questionsA.length;
   document.getElementById("current-question").innerHTML = currentQuestion + 1;
@@ -225,11 +187,11 @@ function updateProgressBar(){
   document.getElementById("progress-bar").style = `width: ${percent}%`;
 }
 
-function restartGame(init) {
+function restartGame(quiztype) {
   document.getElementById("quiz-start").classList.remove("d-none");
   document.getElementById("quiz-end").classList.add("d-none");
   ResetVarsToZero();
-  init();
+  init(quiztype);
 }
 
 /**game over listener*/
@@ -252,6 +214,7 @@ function disableSelection(){
   document.getElementById("answer_b").style.pointerEvents = 'none';
   document.getElementById("answer_c").style.pointerEvents = 'none';
   document.getElementById("answer_d").style.pointerEvents = 'none';
+  document.getElementById("next-question").disabled = false;
 }
 
 /**Enables answer selection */
@@ -295,4 +258,8 @@ function showEndScreen(){
   document.getElementById("end-score-correct-answers").innerHTML =  rightAnsweredQuestions;
 }
 
-
+/**adds classlist to first ID and removes it from the second one */
+function toggleSelection(id, idDiff){
+  document.getElementById(id).classList.add('selected');
+  document.getElementById(idDiff).classList.remove('selected');
+}

@@ -30,7 +30,7 @@
                     <span class="sub-text">Wähle ein Quiz & beginne mit dem Quiz</span>
                 </div>
                 <div>
-                    <button id="quiz-button" class="start-button" disabled onclick="SelectQuizA()">
+                    <button id="quiz-button" class="start-button" disabled onclick="">
                         Spiel starten
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -46,8 +46,8 @@
                 </div>
                 <div class="option-wrapper">
                     <div class="options">
-                        <span id="JS" onclick="selectA()">JavaScript</span>
-                        <span id="GM" onclick="selectB()">Games</span>
+                        <span id="js" onclick="select('JS','Javascript'), toggleSelection('js','gm')">JavaScript</span>
+                        <span id="gm" onclick="select('GM','Games'), toggleSelection('gm','js')">Games</span>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             </div>
             <img src="img/tropy.png" class="card-img-top-end-trophy padding">
             <div class="card-body text-center">
-                <span class="fs-2 warning"><b id="quiz-type">JavaScript Quiz beendet!</b></span>
+                <span class="fs-2 warning"><b id="quiz-type"></b></span>
             </div>
             <div class="card-body text-center">
                 <span class="fs-3">
